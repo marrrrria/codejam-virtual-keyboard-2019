@@ -133,13 +133,42 @@ class Button {
         this.value = '';
         this.altshift = '';
       }
-      keybDownHandler = e => {
+    keybDownHandler = e => {
         e.preventDefault();
         const code = e.which;
         const el = document.getElementById(code);
         if (el) {
             el.classList.add("blue");
         }
-        
     }
+    keybUpHandler = e => {
+        e.preventDefault();
+        const code = e.which;
+        const el = document.getElementById(code);
+           
+        if (el) {
+          el.classList.remove('blue');
+          }
+              
+        if (el.id === '20' && !this.capsLock) {
+          el.classList.add('capsLockOn');
+          this.capsLockOn(el);
+        } else if (el.id === '20' && this.capsLock) {
+          this.capsLockOff(el);
+          el.classList.remove('capsLockOn');
+        }
+  
+        if(code===8) {
+             this.delete();
+      }
+        if (el.classList.contains('letter')) {
+          let text = el.innerText;
+          if (!el.innerText) {
+            text = ' ';
+          }
+          this.write(text);
+        }      
+      };
+
+      
   }
