@@ -217,5 +217,22 @@ class Button {
         el.forEach(letter => (letter.innerText = letter.innerText.toLowerCase()));
         this.capsLock = false;
       };
+      render() {
+        this.klava = document.createElement('div');
+        this.klava.classList.add('klava');
+        this.klava.appendChild(this.textArea);
+        this.klava.appendChild(this.probe);
+        this.klava.appendChild(this.Row1);
+        this.klava.appendChild(this.Row2);
+        this.klava.appendChild(this.Row3);
+        this.klava.appendChild(this.Row4);
+        this.klava.appendChild(this.Row5);
+    
+        this.klava.addEventListener('mousedown', this.mouseDownHandler);
+        this.klava.addEventListener('mouseup', this.mouseUpHandler);
+        document.body.addEventListener('keydown', this.keybDownHandler);
+        document.body.addEventListener('keyup', this.keybUpHandler);
+        document.body.appendChild(this.klava);
+      }
 
   }
