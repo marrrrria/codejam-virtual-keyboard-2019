@@ -22,3 +22,15 @@ class Button {
         return this.button;
       };
   }
+
+  class Row {
+    constructor(arr) {
+      this.row = document.createElement('div');
+      this.row.classList.add('row');
+      arr.forEach(el => this.row.appendChild(el));
+    }
+  
+    render() {
+      return this.row;
+    }
+  }
