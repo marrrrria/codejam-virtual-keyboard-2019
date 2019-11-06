@@ -168,7 +168,12 @@ class Button {
           }
           this.write(text);
         }      
-      };
+    };
+    mouseDownHandler = e => {
+        e.preventDefault();
+        const el = e.target;
+        el.classList.remove('up');
+        el.classList.add('down');
+    };
 
-      
   }
