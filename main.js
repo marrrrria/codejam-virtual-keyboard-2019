@@ -133,4 +133,13 @@ class Button {
         this.value = '';
         this.altshift = '';
       }
+      keybDownHandler = e => {
+        e.preventDefault();
+        const code = e.which;
+        const el = document.getElementById(code);
+        if (el) {
+            el.classList.add("blue");
+        }
+        
+    }
   }
