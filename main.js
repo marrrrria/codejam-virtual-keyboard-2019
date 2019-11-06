@@ -175,5 +175,28 @@ class Button {
         el.classList.remove('up');
         el.classList.add('down');
     };
+    mouseUpHandler = e => {
+        e.preventDefault();
+        const el = e.target;
+        el.classList.remove('down');
+        el.classList.add('up');
+    
+        if (el.id === '20' && !this.capsLock) {
+          el.classList.add('capsLockOn');
+          this.capsLockOn(el);
+          ``;
+        } else if (el.id === '20' && this.capsLock) {
+          this.capsLockOff(el);
+          el.classList.remove('capsLockOn');
+        }
+        
+        if(el.id==="8") {
+          this.delete();
+   }
+  
+        if (el.classList.contains('letter')) {
+          this.write(el.innerText);
+        }
+    };
 
   }
