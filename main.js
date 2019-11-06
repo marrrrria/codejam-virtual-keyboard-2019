@@ -207,4 +207,15 @@ class Button {
       document.getElementById('text').value = this.value;
     };
 
+    capsLockOn = () => {
+        const el = document.querySelectorAll('.letter');
+        el.forEach(letter => (letter.innerText = letter.innerText.toUpperCase()));
+        this.capsLock = true;
+      };
+      capsLockOff = () => {
+        const el = document.querySelectorAll('.letter');
+        el.forEach(letter => (letter.innerText = letter.innerText.toLowerCase()));
+        this.capsLock = false;
+      };
+
   }
