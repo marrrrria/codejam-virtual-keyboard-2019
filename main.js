@@ -198,5 +198,9 @@ class Button {
           this.write(el.innerText);
         }
     };
+    write = sym => {
+        this.value += sym;
+        document.getElementById('text').value = this.value;
+    };
 
   }
