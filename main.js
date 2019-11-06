@@ -140,7 +140,7 @@ class Button {
         if (el) {
             el.classList.add("blue");
         }
-    }
+    };
     keybUpHandler = e => {
         e.preventDefault();
         const code = e.which;
@@ -201,6 +201,10 @@ class Button {
     write = sym => {
         this.value += sym;
         document.getElementById('text').value = this.value;
+    };
+    delete = () => {
+        this.value = this.value.slice(0, -1);
+      document.getElementById('text').value = this.value;
     };
 
   }
