@@ -10,6 +10,8 @@ class Button {
         const el = document.createElement('div');
         el.innerText = this.first;
         el.id = this.id;
+        el.setAttribute('en', this.first);
+        el.setAttribute('ru', this.second);
         el.classList.add(this.type, 'button', 'up');
         if (this.first === 'Space') {
           el.classList.add('space');
@@ -88,7 +90,7 @@ class Button {
         
   
     const fourthRow = [
-          { code: '16', first: 'Shift', second: 'ShiftLeft', type: 'func' },
+          { code: '16', first: 'Shift', second: 'Left', type: 'func' },
           { code: '90', first: 'z', second: 'я', type: 'letter' },
           { code: '88', first: 'x', second: 'ч', type: 'letter' },
           { code: '67', first: 'c', second: 'с', type: 'letter' },
@@ -100,14 +102,14 @@ class Button {
           { code: '190', first: '.', second: 'ю', type: 'letter' },
           { code: '191', first: '/', second: '.', type: 'letter' },
           { code: '38', first: '▲', second: 'up', type: 'func' },
-          { code: '16', first: 'Shift', second: 'ShiftRight', type: 'func' },
+          { code: '16', first: 'Shift', second: 'Right', type: 'func' },
         ];
         const fifthRow = [
-          { code: '17', first: 'Ctrl', second: 'CtrlLeft', type: 'func' },
-          { code: '18', first: 'Alt', second: 'AltLeft', type: 'func' },
+          { code: '17', first: 'Ctrl', second: 'Left', type: 'func' },
+          { code: '18', first: 'Alt', second: 'Left', type: 'func' },
           { code: '32', first: 'Space', second: 'Space', type: 'letter' },
-          { code: '18', first: 'Alt', second: 'AltRight', type: 'func' },
-          { code: '17', first: 'Ctrl', second: 'CtrlRight', type: 'func' },
+          { code: '18', first: 'Alt', second: 'Right', type: 'func' },
+          { code: '17', first: 'Ctrl', second: 'Right', type: 'func' },
           { code: '37', first: '◄', second: 'left', type: 'func' },
           { code: '40', first: '▼', second: 'down', type: 'func' },
           { code: '39', first: '►', second: 'right', type: 'func' },
@@ -137,9 +139,15 @@ class Button {
         e.preventDefault();
         const code = e.which;
         const el = document.getElementById(code);
+        
+
         if (el) {
             el.classList.add("blue");
+            el.classList.remove('up');
+            el.classList.add('down');
         }
+
+
     };
     keybUpHandler = e => {
         e.preventDefault();
@@ -148,6 +156,8 @@ class Button {
            
         if (el) {
           el.classList.remove('blue');
+          el.classList.remove('down');
+          el.classList.add('up');
           }
               
         if (el.id === '20' && !this.capsLock) {
@@ -161,6 +171,7 @@ class Button {
         if(code===8) {
              this.delete();
       }
+
         if (el.classList.contains('letter')) {
           let text = el.innerText;
           if (!el.innerText) {
@@ -174,17 +185,19 @@ class Button {
         const el = e.target;
         el.classList.remove('up');
         el.classList.add('down');
+        
     };
     mouseUpHandler = e => {
         e.preventDefault();
         const el = e.target;
+        
         el.classList.remove('down');
         el.classList.add('up');
     
         if (el.id === '20' && !this.capsLock) {
           el.classList.add('capsLockOn');
           this.capsLockOn(el);
-          ``;
+     
         } else if (el.id === '20' && this.capsLock) {
           this.capsLockOff(el);
           el.classList.remove('capsLockOn');
