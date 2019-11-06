@@ -35,7 +35,7 @@ class Button {
     }
   }
 
-  klass keyboard {
+  class Keyboard {
     constructor() {
         const firstRow = [
           { code: '192', first: '`', second: 'ё', type: 'letter' },
@@ -236,3 +236,6 @@ class Button {
       }
 
   }
+
+  const keyboard = new Keyboard();
+  keyboard.render();
