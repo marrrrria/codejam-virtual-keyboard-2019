@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.button {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.letter {
+    width: 40px;
+    height: 40px;
+    background: rgb(143, 141, 141);
+    color: white;
+}
+
+.func {
+    padding: 0 15px;
+    height: 40px;
+    background: rgb(61, 59, 59);
+    color: white;
+}
+
+.up {
+    border-radius: 5px;
+}
+
+.down {
+    border-radius: 20px;
+}
+
+.klava {
+    width: 700px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.capsLock {
+    position: relative;
+    padding: 10px 15px;
+    height: 30px;
+    color: white;
+    background: rgb(58, 54, 54);
+}
+
+.capsLockOn {
+    &:after {
+        content: '';
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgb(101, 224, 101);
+    }
+}
+
+.row {
+    display: flex;
+    width: 680px;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.blue {
+    background: rgba(24, 169, 236, 0.685);
+}
+
+.space {
+    width: 160px;
+}
